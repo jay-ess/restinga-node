@@ -1,0 +1,52 @@
+{
+  "name": "restinga-node",
+  "version": "1.0.0",
+  "description": "NodeJS version of artesaos/restinga",
+  "main": "lib/index.js",
+  "directories": {
+		"lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "ava test/**/*.test.js --require babel-register",
+		"build": "babel src --out-dir lib",
+		"prepublish": "npm run build",
+		"postpublish": "rm -rf lib/",
+		"postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jay-ess/restinga-node.git"
+  },
+  "keywords": [
+    "REST",
+    "framework"
+  ],
+  "author": "jay-ess (https://github.com/jay-ess/restinga-node)",
+	"contributors": [
+		{
+			"name": "lubien",
+			"email": "lubien1996@gmail.com",
+			"url": "http://lubien.me"
+		},
+		{
+			"name": "Lucas Vasconcelos",
+			"email": "lucaslg26@yahoo.com.br"
+		},
+		{
+			"name": "Mateus Guimarães",
+			"email": "mateus.jatene@gmail.com"
+		}
+	],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jay-ess/restinga-node/issues"
+  },
+  "homepage": "https://github.com/jay-ess/restinga-node#readme",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "babel-cli": "^6.10.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.9.0"
+  }
+}
