@@ -1,7 +1,7 @@
 import test from 'ava';
-import Container from '../src/container.js';
+import {Container} from '../src';
 
-test('I can instantiate a Container class', t => {
+test('Container', t => {
 	t.truthy(new Container());
 });
 
