@@ -1,6 +1,7 @@
 export default class Container {
-	/*
-	 * @param {Service} service
+	/**
+	 * @param {Descriptor} service
+	 * @returns {bool}
 	 */
 	static register(service) {
 		const name = service.service;
@@ -13,15 +14,17 @@ export default class Container {
 		return false;
 	}
 
-	/*
+	/**
 	 * @param {string} name
+	 * @returns {bool}
 	 */
 	static has(name) {
 		return {}.hasOwnProperty.call(Container._services, name);
 	}
 
-	/*
+	/**
 	 * @param {string} name
+	 * @returns {?Descriptor}
 	 */
 	static get(name) {
 		return Container._services[name] || null;

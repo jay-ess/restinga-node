@@ -1,6 +1,6 @@
 export default class Descriptor {
-	/*
-	 * @param {object} params
+	/**
+	 * @param {Object} params
 	 */
 	constructor({service, headers, prefix}) {
 		this.service = service;
