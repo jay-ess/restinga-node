@@ -1,4 +1,4 @@
-export default class Descriptor {
+export default class Service {
 	/**
 	 * @param {Object} params
 	 */

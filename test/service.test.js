@@ -1,7 +1,7 @@
 import test from 'ava';
 import {JsonPlaceholderService} from './fixtures';
 
-test('Descriptor', t => {
+test('Service', t => {
 	const service = new JsonPlaceholderService();
 
 	t.is(service.service, 'json-placeholder');

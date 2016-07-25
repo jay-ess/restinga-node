@@ -1,6 +1,6 @@
-import {Descriptor} from '../../src';
+import {Service} from '../../src';
 
-export default class JsonPlaceHolderService extends Descriptor {
+export default class JsonPlaceHolderService extends Service {
 	constructor() {
 		super({
 			service: 'json-placeholder',

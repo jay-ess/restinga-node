@@ -1,8 +1,8 @@
 import test from 'ava';
-import {Container, Descriptor} from '../src';
+import {Container, Service} from '../src';
 
 test('Container', t => {
-	const fooService = new Descriptor({service: 'foo-service'});
+	const fooService = new Service({service: 'foo-service'});
 
 	t.falsy(Container.has('foo-service'));
 
