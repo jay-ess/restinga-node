@@ -1,4 +1,4 @@
-export default function SendJson {
+export default class SendJson {
 	/**
 	 * @returns {object}
 	 */
