@@ -52,5 +52,8 @@
     "coveralls": "^2.11.11",
     "nyc": "^7.1.0-candidate3",
     "xo": "^0.16.0"
+  },
+  "dependencies": {
+    "got": "^6.3.0"
   }
 }
