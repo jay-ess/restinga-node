@@ -4,10 +4,10 @@ export default class Resource {
 	/**
 	 * @param {Object} params
 	 */
-	constructor({service, name, identifier, collectionRoot, itemRoot}) {
+	constructor({service, name, identifierName, collectionRoot, itemRoot}) {
 		this.service = service;
 		this.name = name;
-		this.identifier = identifier;
+		this.identifierName = identifierName;
 		this.collectionRoot = collectionRoot;
 		this.itemRoot = itemRoot;
 

@@ -11,7 +11,7 @@ test('Resource', t => {
 
 	t.truthy(post.service);
 	t.truthy(post.name);
-	t.truthy(post.identifier);
+	t.truthy(post.identifierName);
 	t.truthy(post.collectionRoot);
 	t.truthy(post.itemRoot);
 	t.truthy(post.descriptor);

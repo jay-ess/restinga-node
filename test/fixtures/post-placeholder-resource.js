@@ -5,7 +5,7 @@ export default class PostPlaceholderResource extends Resource {
 		super({
 			service: 'json-placeholder',
 			name: 'post-placeholders',
-			identifier: 'id',
+			identifierName: 'id',
 			collectionRoot: 'posts',
 			itemRoot: 'post'
 		});
