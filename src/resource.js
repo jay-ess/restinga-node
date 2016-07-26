@@ -40,7 +40,33 @@ export default class Resource {
 	 * @returns {?string}
 	 */
 	getIdentifier() {
-		return this.attributes[this.identifierName] || null;
+		return this.get(this.identifierName) || null;
+	}
+
+	/**
+	 * @param {string} key
+	 * @returns {*}
+	 */
+	get(key) {
+		return this.attributes[key];
+	}
+
+	/**
+	 * @param {string|Object} key
+	 * @param {?*} value
+	 */
+	set(arg1, value = null) {
+		if (typeof arg1 === 'object') {
+			const values = arg1;
+
+			for (const key of Object.keys(values)) {
+				this.attributes[key] = values[key];
+			}
+		} else {
+			const key = arg1;
+
+			this.attributes[key] = value;
+		}
 	}
 
 	/**
@@ -86,7 +112,7 @@ export default class Resource {
 	 * @returns {Promise}
 	 */
 	doFind(identifier = '') {
-		this.attributes[this.identifierName] = identifier;
+		this.set(this.identifierName, identifier);
 
 		return this.makeRequest('get', true)
 			.then(response => {
