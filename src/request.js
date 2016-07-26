@@ -30,7 +30,7 @@ export default class Request {
 		let url = this.resource.name;
 
 		if (this.identified) {
-			const identifier = this.resource.identifier;
+			const identifier = this.resource.getIdentifier();
 
 			if (identifier) {
 				url += `/${identifier}`;
@@ -41,7 +41,7 @@ export default class Request {
 			let current = this.resource.parentResource;
 
 			while (current) {
-				url = `${current.name}/${current.identifier}/${url}`;
+				url = `${current.name}/${current.getIdentifier()}/${url}`;
 				current = current.parentResource;
 			}
 		}

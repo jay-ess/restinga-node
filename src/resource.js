@@ -34,5 +34,12 @@ export default class Resource {
 
 		return resource;
 	}
+
+	/**
+	 * @returns {?string}
+	 */
+	getIdentifier() {
+		return this.attributes[this.identifierName] || null;
+	}
 }
 
