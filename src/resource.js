@@ -12,6 +12,27 @@ export default class Resource {
 		this.itemRoot = itemRoot;
 
 		this.descriptor = Container.get(this.service);
+
+		this.attributes = {};
+
+		this.parentResource = null;
+	}
+
+	/**
+	 * @returns {bool}
+	 */
+	hasParentResource() {
+		return this.parentResource === null;
+	}
+
+	/**
+	 * @param {Resource} resource
+	 * @return {Resource}
+	 */
+	childResource(resource) {
+		resource.parentResource = this;
+
+		return resource;
 	}
 }
 
