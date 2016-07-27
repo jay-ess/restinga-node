@@ -1,6 +1,6 @@
 import test from 'ava';
 import {Container, Resource} from '../src';
-import {JsonPlaceholderService, PostResource} from './fixtures';
+import {JsonPlaceholderService, PostResource, CommentResource} from './fixtures';
 
 test('Resource', t => {
 	const jsonPlaceholderService = new JsonPlaceholderService();
@@ -63,5 +63,17 @@ test('Resource.destroy()', async t => {
 	const post = await PostResource.find(1);
 
 	await post.destroy();
+});
+
+test('Resource parents and childs', async t => {
+	const comments = await new PostResource()
+		.set('id', 1)
+		.childResource(new CommentResource())
+		.getAll();
+
+	t.truthy(Array.isArray(comments));
+
+	comments
+		.forEach(comment => t.is(comment.constructor, CommentResource));
 });
 
