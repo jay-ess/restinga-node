@@ -16,7 +16,8 @@
     "postversion": "git push && git push --tags"
   },
 	"xo": {
-		"esnext": true
+		"esnext": true,
+		"ignores": ["lib/**/*"]
 	},
   "repository": {
     "type": "git",
