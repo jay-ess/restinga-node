@@ -54,6 +54,7 @@ export default class Resource {
 	/**
 	 * @param {string|Object} key
 	 * @param {?*} value
+	 * @returns {Resource}
 	 */
 	set(arg1, value = null) {
 		if (typeof arg1 === 'object') {
@@ -67,6 +68,8 @@ export default class Resource {
 
 			this.attributes[key] = value;
 		}
+
+		return this;
 	}
 
 	/**
