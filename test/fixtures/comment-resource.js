@@ -1,7 +1,7 @@
 import {Resource} from '../../src';
-import {ReceiveJson, SendJson} from '../../src/format';
+import {receiveJson, sendJson} from '../../src/format';
 
-export default class CommentResource extends ReceiveJson(SendJson(Resource)) {
+export default class CommentResource extends receiveJson(sendJson(Resource)) {
 	constructor() {
 		super({
 			service: 'json-placeholder',

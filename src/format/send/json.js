@@ -1,4 +1,4 @@
-export default function SendJson(SuperClass) {
+export default function sendJson(SuperClass) {
 	return class SendJson extends SuperClass {
 		/**
 		 * @returns {object}
@@ -13,6 +13,6 @@ export default function SendJson(SuperClass) {
 		getContentTypeHeader() {
 			return 'application/json';
 		}
-	}
+	};
 }
 

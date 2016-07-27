@@ -1,4 +1,4 @@
-export default function ReceiveJson(SuperClass) {
+export default function receiveJson(SuperClass) {
 	return class ReceiveJson extends SuperClass {
 		/**
 		 * @returns {string}
@@ -53,6 +53,6 @@ export default function ReceiveJson(SuperClass) {
 				this.attributes[key] = data[key];
 			}
 		}
-	}
+	};
 }
 

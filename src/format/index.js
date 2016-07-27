@@ -1,3 +1,3 @@
-export {default as ReceiveJson} from './receive/json';
-export {default as SendJson} from './send/json';
+export {default as receiveJson} from './receive/json';
+export {default as sendJson} from './send/json';
 
