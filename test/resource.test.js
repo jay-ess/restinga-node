@@ -35,8 +35,7 @@ test('Resource.find()', async t => {
 });
 
 test('Resource.save()', async t => {
-	const post = new PostResource();
-	post.set({
+	const post = new PostResource({
 		userId: 1,
 		title: 'Foo',
 		body: 'Lorem ipsum'
