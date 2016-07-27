@@ -13,3 +13,7 @@ test('Container', t => {
 	t.deepEqual(fooService, Container.get('foo-service'));
 });
 
+test('Container trying to receive non-Descriptor', t => {
+	t.false(Container.register({notDescriptor: true}));
+});
+
