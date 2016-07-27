@@ -1,16 +1,18 @@
-export default class SendJson {
-	/**
-	 * @returns {object}
-	 */
-	encode() {
-		return this.attributes;
-	}
+export default function SendJson(SuperClass) {
+	return class SendJson extends SuperClass {
+		/**
+		 * @returns {object}
+		 */
+		encode() {
+			return this.attributes;
+		}
 
-	/**
-	 * @returns {string}
-	 */
-	getContentTypeHeader() {
-		return 'application/json';
+		/**
+		 * @returns {string}
+		 */
+		getContentTypeHeader() {
+			return 'application/json';
+		}
 	}
 }
 
