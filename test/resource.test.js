@@ -75,3 +75,15 @@ test('Resource parents and childs', async t => {
 		.forEach(comment => t.is(comment.constructor, CommentResource));
 });
 
+test('Resource request custom body', async t => {
+	const comments = await CommentResource.all({
+		postId: 1
+	});
+
+	t.true(Array.isArray(comments));
+	t.true(
+		comments
+			.every(comment => comment.get('postId') === 1)
+	);
+});
+

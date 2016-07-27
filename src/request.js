@@ -65,7 +65,7 @@ export default class Request {
 		opts.headers = this.headers;
 
 		if (this.customBody) {
-			opts.body = this.customBody;
+			opts.query = this.customBody;
 		} else if (hasBody) {
 			// The trick here is that some APIs throw when receive
 			// `Content-Type` header on POST and PUT
