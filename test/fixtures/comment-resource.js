@@ -6,7 +6,7 @@ export default class CommentResource extends ReceiveJson(SendJson(Resource)) {
 		super({
 			service: 'json-placeholder',
 			name: 'comments',
-			identifierName: 'id',
+			identifierName: 'id'
 		});
 	}
 }

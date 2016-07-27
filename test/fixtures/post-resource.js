@@ -6,7 +6,7 @@ export default class PostResource extends ReceiveJson(SendJson(Resource)) {
 		super({
 			service: 'json-placeholder',
 			name: 'posts',
-			identifierName: 'id',
+			identifierName: 'id'
 		});
 	}
 }

@@ -1,5 +1,5 @@
 import test from 'ava';
-import {Container, Resource} from '../src';
+import {Container} from '../src';
 import {JsonPlaceholderService, PostResource, CommentResource} from './fixtures';
 
 test('Resource', t => {
@@ -22,7 +22,7 @@ test('Resource', t => {
 test('Resource.all()', async t => {
 	const posts = await PostResource.all();
 
-	t.truthy(Array.isArray(posts));
+	t.true(Array.isArray(posts));
 
 	posts
 		.forEach(post => t.is(post.constructor, PostResource));
@@ -34,20 +34,18 @@ test('Resource.find()', async t => {
 	t.is(post.get('id'), 1);
 });
 
-
-
 test('Resource.save()', async t => {
 	const post = new PostResource();
 	post.set({
 		userId: 1,
 		title: 'Foo',
-		body: 'Lorem ipsum',
+		body: 'Lorem ipsum'
 	});
 
 	await post.save();
 
 	t.is(typeof post.get('id'), 'number');
-})
+});
 
 test('Resource.update()', async t => {
 	const post = await PostResource.find(1);
@@ -59,7 +57,7 @@ test('Resource.update()', async t => {
 	t.is(post.get('title'), 'WatchJoJoBizarreAdventure');
 });
 
-test('Resource.destroy()', async t => {
+test('Resource.destroy()', async () => {
 	const post = await PostResource.find(1);
 
 	await post.destroy();
@@ -71,7 +69,7 @@ test('Resource parents and childs', async t => {
 		.childResource(new CommentResource())
 		.getAll();
 
-	t.truthy(Array.isArray(comments));
+	t.true(Array.isArray(comments));
 
 	comments
 		.forEach(comment => t.is(comment.constructor, CommentResource));
