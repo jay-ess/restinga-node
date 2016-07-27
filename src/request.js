@@ -66,6 +66,9 @@ export default class Request {
 		if (this.customBody) {
 			opts.body = this.customBody;
 		} else if (hasBody) {
+			// The trick here is that some APIs throw when receive
+			// `Content-Type` header on POST and PUT
+			delete opts.headers['Content-Type'];
 			opts.body = this.resource.encode ? this.resource.encode() : this.resource.attributes;
 		}
 

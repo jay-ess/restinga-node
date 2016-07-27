@@ -5,10 +5,8 @@ export default class PostPlaceholderResource extends ReceiveJson(SendJson(Resour
 	constructor() {
 		super({
 			service: 'json-placeholder',
-			name: 'post-placeholders',
+			name: 'posts',
 			identifierName: 'id',
-			collectionRoot: 'posts',
-			itemRoot: 'post'
 		});
 	}
 }
