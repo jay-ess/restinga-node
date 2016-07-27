@@ -23,7 +23,7 @@ export default class Resource {
 	 * @returns {bool}
 	 */
 	hasParentResource() {
-		return this.parentResource === null;
+		return this.parentResource !== null;
 	}
 
 	/**
