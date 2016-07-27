@@ -8,13 +8,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "xo src/**/*.js && ava test/**/*.test.js --require babel-register",
+    "test": "xo && ava test/**/*.test.js --require babel-register",
     "test-with-coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
     "postpublish": "rm -rf lib/",
     "postversion": "git push && git push --tags"
   },
+	"xo": {
+		"esnext": true
+	},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jay-ess/restinga-node.git"
