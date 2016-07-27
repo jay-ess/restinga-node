@@ -59,3 +59,9 @@ test('Resource.update()', async t => {
 	t.is(post.get('title'), 'WatchJoJoBizarreAdventure');
 });
 
+test('Resource.destroy()', async t => {
+	const post = await PostPlaceholderResource.find(1);
+
+	await post.destroy();
+});
+
