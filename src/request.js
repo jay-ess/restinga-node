@@ -15,7 +15,7 @@ export default class Request {
 
 		this.descriptor = this.resource.descriptor;
 
-		const {headers = {}, opts = {}} = this.descriptor.authorization.setupRequest();
+		const {headers = {}, opts = {}} = this.descriptor.authorization ? this.descriptor.authorization.setupRequest() : {};
 		this.headers = headers;
 		this.opts = opts;
 
