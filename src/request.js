@@ -21,6 +21,7 @@ export default class Request {
 
 		this.headers['Content-Type'] = this.resource.getContentTypeHeader();
 		this.headers.Accept = this.resource.getAcceptHeader();
+		this.headers['User-Agent'] = this.descriptor.agent;
 	}
 
 	/**
