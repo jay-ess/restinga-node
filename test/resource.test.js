@@ -1,13 +1,13 @@
 import test from 'ava';
 import {Container, Resource} from '../src';
-import {JsonPlaceholderService, PostPlaceholderResource} from './fixtures';
+import {JsonPlaceholderService, PostResource} from './fixtures';
 
 test('Resource', t => {
 	const jsonPlaceholderService = new JsonPlaceholderService();
 
 	Container.register(jsonPlaceholderService);
 
-	const post = new PostPlaceholderResource();
+	const post = new PostResource();
 
 	t.truthy(post.service);
 	t.truthy(post.name);
@@ -20,16 +20,16 @@ test('Resource', t => {
 });
 
 test('Resource.all()', async t => {
-	const posts = await PostPlaceholderResource.all();
+	const posts = await PostResource.all();
 
 	t.truthy(Array.isArray(posts));
 
 	posts
-		.forEach(post => t.is(post.constructor, PostPlaceholderResource));
+		.forEach(post => t.is(post.constructor, PostResource));
 });
 
 test('Resource.find()', async t => {
-	const post = await PostPlaceholderResource.find(1);
+	const post = await PostResource.find(1);
 
 	t.is(post.get('id'), 1);
 });
@@ -37,7 +37,7 @@ test('Resource.find()', async t => {
 
 
 test('Resource.save()', async t => {
-	const post = new PostPlaceholderResource();
+	const post = new PostResource();
 	post.set({
 		userId: 1,
 		title: 'Foo',
@@ -50,7 +50,7 @@ test('Resource.save()', async t => {
 })
 
 test('Resource.update()', async t => {
-	const post = await PostPlaceholderResource.find(1);
+	const post = await PostResource.find(1);
 
 	post.set('title', 'WatchJoJoBizarreAdventure');
 
@@ -60,7 +60,7 @@ test('Resource.update()', async t => {
 });
 
 test('Resource.destroy()', async t => {
-	const post = await PostPlaceholderResource.find(1);
+	const post = await PostResource.find(1);
 
 	await post.destroy();
 });
