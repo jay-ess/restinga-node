@@ -7,7 +7,7 @@ export default class Request {
 	 * @param {?string} append
 	 * @param {?Object} customBody
 	 */
-	constructor(resource, identified = false, append = null, customBody = null) {
+	constructor(resource, {identified = false, append = null, customBody = null}) {
 		this.resource = resource;
 		this.identified = identified;
 		this.append = append;

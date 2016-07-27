@@ -117,7 +117,7 @@ export default class Resource {
 	doFind(identifier = '') {
 		this.set(this.identifierName, identifier);
 
-		return this.makeRequest('get', true)
+		return this.makeRequest('get', {identified: true})
 			.then(response => {
 				this.factory(response);
 
@@ -141,7 +141,7 @@ export default class Resource {
 	 * @returns {Promise}
 	 */
 	update() {
-		return this.makeRequest('put', true)
+		return this.makeRequest('put', {identified: true})
 			.then(response => {
 				this.factory(response);
 
@@ -153,7 +153,7 @@ export default class Resource {
 	 * @returns {Promise}
 	 */
 	destroy() {
-		return this.makeRequest('delete', true);
+		return this.makeRequest('delete', {identified: true});
 	}
 
 	/**
@@ -163,8 +163,8 @@ export default class Resource {
 	 * @param {?Object} customBody
 	 * @returns {Promise}
 	 */
-	makeRequest(method, identified = false, append = null, customBody = null) {
-		const request = new Request(this, identified, append, customBody);
+	makeRequest(method, opts = {}) {
+		const request = new Request(this, opts);
 
 		return request.send(method);
 	}
