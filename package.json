@@ -15,10 +15,12 @@
     "postpublish": "rm -rf lib/",
     "postversion": "git push && git push --tags"
   },
-	"xo": {
-		"esnext": true,
-		"ignores": ["lib/**/*"]
-	},
+  "xo": {
+    "esnext": true,
+    "ignores": [
+      "lib/**/*"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jay-ess/restinga-node.git"
