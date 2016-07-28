@@ -18,15 +18,8 @@ export default function receiveJson(SuperClass) {
 				resourcesData = resourcesData[this.collectionRoot];
 			}
 
-			const resources = [];
-
-			for (const data of resourcesData) {
-				const resource = new this.constructor();
-				resource._receiveJsonFill(data);
-				resources.push(resource);
-			}
-
-			return resources;
+			return resourcesData
+				.map(data => new this.constructor(data));
 		}
 
 		/**
@@ -40,18 +33,7 @@ export default function receiveJson(SuperClass) {
 				resourceData = resourceData[this.itemRoot];
 			}
 
-			this._receiveJsonFill(resourceData);
-
-			return this;
-		}
-
-		/**
-		 * @param {Object} data
-		 */
-		_receiveJsonFill(data) {
-			for (const key of Object.keys(data)) {
-				this.attributes[key] = data[key];
-			}
+			return this.set(resourceData);
 		}
 	};
 }

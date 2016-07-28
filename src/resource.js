@@ -99,11 +99,7 @@ export default class Resource {
 
 				if (this.hasParentResource()) {
 					return resources
-						.map(resource => {
-							resource.parentResource = this.parentResource;
-
-							return resource;
-						});
+						.map(this.parentResource.childResource);
 				}
 
 				return resources;
@@ -127,11 +123,7 @@ export default class Resource {
 		this.set(this.identifierName, identifier);
 
 		return this.makeRequest('get', {identified: true})
-			.then(response => {
-				this.factory(response);
-
-				return this;
-			});
+			.then(response => this.factory(response));
 	}
 
 	/**
@@ -139,11 +131,7 @@ export default class Resource {
 	 */
 	save() {
 		return this.makeRequest('post')
-			.then(response => {
-				this.factory(response);
-
-				return this;
-			});
+			.then(response => this.factory(response));
 	}
 
 	/**
@@ -151,11 +139,7 @@ export default class Resource {
 	 */
 	update() {
 		return this.makeRequest('put', {identified: true})
-			.then(response => {
-				this.factory(response);
-
-				return this;
-			});
+			.then(response => this.factory(response));
 	}
 
 	/**

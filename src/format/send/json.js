@@ -1,7 +1,7 @@
 export default function sendJson(SuperClass) {
 	return class SendJson extends SuperClass {
 		/**
-		 * @returns {object}
+		 * @returns {Object}
 		 */
 		encode() {
 			return this.attributes;
