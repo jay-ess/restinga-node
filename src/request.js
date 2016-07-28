@@ -1,5 +1,7 @@
 import got from 'got';
 
+const debug = require('debug')('restinga-node:request');
+
 export default class Request {
 	/**
 	 * @param {Resource} resource
@@ -59,6 +61,7 @@ export default class Request {
 	 * @returns {Promise}
 	 */
 	send(method = 'get') {
+		const url = this.url();
 		const hasBody = method === 'post' || method === 'put';
 
 		const opts = this.opts;
@@ -73,7 +76,9 @@ export default class Request {
 			opts.body = this.resource.encode ? this.resource.encode() : this.resource.attributes;
 		}
 
-		return got[method](this.url(), opts);
+		debug(`${method.toUpperCase()} ${url}`, opts);
+
+		return got[method](url, opts);
 	}
 }
 

@@ -1,6 +1,8 @@
 import Request from './request';
 import {Container} from './';
 
+const debug = require('debug')('restinga-node:resource');
+
 export default class Resource {
 	/**
 	 * @param {Object} attributes
@@ -15,6 +17,8 @@ export default class Resource {
 	 * @param {Object} params
 	 */
 	setup({service, name, identifierName, collectionRoot, itemRoot}) {
+		debug(`Creating Resource ${name} for ${service}`);
+
 		this.service = service;
 		this.name = name;
 		this.identifierName = identifierName;
@@ -32,6 +36,8 @@ export default class Resource {
 	 * @returns {bool}
 	 */
 	hasParentResource() {
+		debug(`Asking for parent of ${this.name}`);
+
 		return this.parentResource !== null;
 	}
 
@@ -40,6 +46,8 @@ export default class Resource {
 	 * @return {Resource}
 	 */
 	childResource(resource) {
+		debug(`Making a child Resouce of ${this ? this.name : undefined}`);
+
 		resource.parentResource = this;
 
 		return resource;
@@ -49,6 +57,8 @@ export default class Resource {
 	 * @returns {?string}
 	 */
 	getIdentifier() {
+		debug(`Getting identifier of ${this.name}`);
+
 		return this.get(this.identifierName) || null;
 	}
 
@@ -57,6 +67,8 @@ export default class Resource {
 	 * @returns {*}
 	 */
 	get(key) {
+		debug(`Get ${key} of ${this.service}/${this.name}`);
+
 		return this.attributes[key];
 	}
 
@@ -66,6 +78,8 @@ export default class Resource {
 	 * @returns {Resource}
 	 */
 	set(arg1, value = null) {
+		debug(`Setting at ${this.service}/${this.name}`);
+
 		if (typeof arg1 === 'object') {
 			const values = arg1;
 

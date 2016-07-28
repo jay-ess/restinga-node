@@ -1,3 +1,5 @@
+const debug = require('debug')('restinga-node:container');
+
 export default class Container {
 	/**
 	 * @param {Descriptor} service
@@ -7,9 +9,13 @@ export default class Container {
 		const name = service.service;
 
 		if (name) {
+			debug(`Registering ${name}`);
+
 			Container._services[name] = service;
 			return true;
 		}
+
+		debug('Could not register to Container. Not a Descriptor:', service);
 
 		return false;
 	}
@@ -19,6 +25,8 @@ export default class Container {
 	 * @returns {bool}
 	 */
 	static has(name) {
+		debug(`Asking for ${name}`);
+
 		return {}.hasOwnProperty.call(Container._services, name);
 	}
 
@@ -27,6 +35,8 @@ export default class Container {
 	 * @returns {?Descriptor}
 	 */
 	static get(name) {
+		debug(`Getting ${name}`);
+
 		return Container._services[name] || null;
 	}
 }
