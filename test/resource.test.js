@@ -2,11 +2,11 @@ import test from 'ava';
 import {Container} from '../src';
 import {JsonPlaceholderService, PostResource, CommentResource} from './fixtures';
 
+const jsonPlaceholderService = new JsonPlaceholderService();
+
+Container.register(jsonPlaceholderService);
+
 test('Resource', t => {
-	const jsonPlaceholderService = new JsonPlaceholderService();
-
-	Container.register(jsonPlaceholderService);
-
 	const post = new PostResource();
 
 	t.truthy(post.service);
