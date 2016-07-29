@@ -1,4 +1,4 @@
-const debug = require('debug')('restinga-node:descriptor');
+const debug = require('debug')('restinga:descriptor');
 const {version} = require('../package.json');
 
 export default class Descriptor {

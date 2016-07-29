@@ -1,4 +1,4 @@
-const debug = require('debug')('restinga-node:container');
+const debug = require('debug')('restinga:container');
 
 export default class Container {
 	/**

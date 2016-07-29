@@ -1,7 +1,7 @@
 import Request from './request';
 import {Container} from './';
 
-const debug = require('debug')('restinga-node:resource');
+const debug = require('debug')('restinga:resource');
 
 export default class Resource {
 	/**

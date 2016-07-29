@@ -1,6 +1,6 @@
 import got from 'got';
 
-const debug = require('debug')('restinga-node:request');
+const debug = require('debug')('restinga:request');
 
 export default class Request {
 	/**
