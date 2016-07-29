@@ -96,6 +96,16 @@ export default class Resource {
 	}
 
 	/**
+	 * @param {string} key
+	 * @returns {Resource}
+	 */
+	unset(key) {
+		delete this.attributes[key];
+
+		return this;
+	}
+
+	/**
 	 * @returns {Promise}
 	 */
 	static all(customBody) {

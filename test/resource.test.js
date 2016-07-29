@@ -19,6 +19,18 @@ test('Resource', t => {
 	t.deepEqual(jsonPlaceholderService, post.descriptor);
 });
 
+test('Resource.unset()', t => {
+	const post = new PostResource({
+		foo: 'bar'
+	});
+
+	t.is(post.get('foo'), 'bar');
+
+	post.unset('foo');
+
+	t.falsy(post.get('foo'));
+});
+
 test('Resource.all()', async t => {
 	const posts = await PostResource.all();
 

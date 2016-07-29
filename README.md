@@ -122,6 +122,7 @@ getIdentifier() | `?string` | Return the identifier value
 get(key) | `*` | Return `key` from attributes
 set(key, value) | `self` | Change a key from attributes
 set(obj) | `self` | Change multiple attributes
+unset(key) | `self` | Delete `key` from attributes
 `static` all(query) | `Promise` => `Resource[]` | Static search resources
 getAll(query) | `Promise` => `Resource[]` | Search resources
 `static` find(identifier) | `Promise` => `Resource` | Static search for an resource with identifier = `identifier`
