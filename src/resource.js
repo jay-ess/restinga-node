@@ -175,9 +175,7 @@ export default class Resource {
 
 	/**
 	 * @param {string} method
-	 * @param {bool} identified
-	 * @param {?string} append
-	 * @param {?Object} customBody
+	 * @param {Object} opts
 	 * @returns {Promise}
 	 */
 	makeRequest(method, opts = {}) {

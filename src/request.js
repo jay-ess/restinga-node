@@ -5,9 +5,7 @@ const debug = require('debug')('restinga:request');
 export default class Request {
 	/**
 	 * @param {Resource} resource
-	 * @param {bool} identified
-	 * @param {?string} append
-	 * @param {?Object} customBody
+	 * @param {Object} opts
 	 */
 	constructor(resource, {identified = false, append = null, customBody = null}) {
 		this.resource = resource;
