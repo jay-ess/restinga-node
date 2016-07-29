@@ -16,13 +16,13 @@
   * [Make Your Auth System](#make-your-auth-system)
   * [Make Your Format](#make-your-format)
 
-### Usage
+## Usage
 
 ```sh
 npm install -S restinga
 ```
 
-### Overview
+## Overview
 
 ###### digital-ocean-descriptor.js
 
@@ -106,13 +106,13 @@ try {
 
 See a working example: [test/resource.test.js](test/resource.test.js).
 
-### Debug
+## Debug
 
 Wanna know what's happening behind the scenes? This module uses [visionmedia/debug](https://github.com/visionmedia/debug), so you can just run `DEBUG=restinga:* node your-file.js` and get a pretty output of how restinga is working.
 
-### Docs
+## Docs
 
-#### Resource methods
+### Resource methods
 
 Method | Return Type | Description
 --- | --- | ---
@@ -131,7 +131,7 @@ save() | `Promise` => `Resource` | Save this resource
 update() | `Promise` => `Resource` | Update this resource
 destroy() | `Promise` | Delete this resource
 
-#### Make Your Auth System
+### Make Your Auth System
 
 For you to make your own authorization class, just make a class with a `setupAuth()` method that takes no params and returns an object like this:
 
@@ -148,7 +148,7 @@ class MyAuthSystem {
 
 `opts` follow [http.request](https://nodejs.org/api/http.html#http_http_request_options_callback) since we use [got](https://github.com/sindresorhus/got) for requests. And `headers` are plain HTTP headers.
 
-#### Make Your Format
+### Make Your Format
 
 Formats are High Order Classes that work as mixins and take care of understand what comes from your REST API responses.
 
@@ -168,3 +168,7 @@ Method | Return Type | Description
 --- | --- | ---
 getContentTypeHeader() | `string` | Value to the `Content-Type` HTTP header
 encode() | `*` | Do whatever you need with `this.attributes` before sendind it
+
+## License
+
+[MIT](LICENSE.md)
