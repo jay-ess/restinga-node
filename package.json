@@ -1,7 +1,7 @@
 {
-  "name": "restinga-node",
+  "name": "restinga",
   "version": "1.0.0",
-  "description": "NodeJS version of artesaos/restinga",
+  "description": "REST API abstraction layer to easily consume data. Based on artesaos/restinga",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",
