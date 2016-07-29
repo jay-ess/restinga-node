@@ -1,5 +1,5 @@
 export default class Bearer {
-	construct(token) {
+	constructor(token) {
 		this.token = token;
 	}
 
