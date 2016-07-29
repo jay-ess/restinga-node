@@ -7,11 +7,11 @@ export default class Request {
 	 * @param {Resource} resource
 	 * @param {Object} opts
 	 */
-	constructor(resource, {identified = false, append = null, customBody = null}) {
+	constructor(resource, {identified = false, append = null, customQuery = null}) {
 		this.resource = resource;
 		this.identified = identified;
 		this.append = append;
-		this.customBody = customBody;
+		this.customQuery = customQuery;
 
 		this.descriptor = this.resource.descriptor;
 
@@ -65,8 +65,8 @@ export default class Request {
 		const opts = this.opts;
 		opts.headers = this.headers;
 
-		if (this.customBody) {
-			opts.query = this.customBody;
+		if (this.customQuery) {
+			opts.query = this.customQuery;
 		} else if (hasBody) {
 			// The trick here is that some APIs throw when receive
 			// `Content-Type` header on POST and PUT

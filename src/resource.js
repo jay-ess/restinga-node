@@ -108,16 +108,16 @@ export default class Resource {
 	/**
 	 * @returns {Promise}
 	 */
-	static all(customBody) {
+	static all(customQuery) {
 		const instance = new this();
-		return instance.getAll(customBody);
+		return instance.getAll(customQuery);
 	}
 
 	/**
 	 * @returns {Resource[]}
 	 */
-	getAll(customBody) {
-		return this.makeRequest('get', {customBody})
+	getAll(customQuery) {
+		return this.makeRequest('get', {customQuery})
 			.then(response => {
 				const resources = this.factoryCollection(response);
 
