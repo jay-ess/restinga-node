@@ -25,8 +25,12 @@ export default class Resource {
 		this.collectionRoot = collectionRoot;
 		this.itemRoot = itemRoot;
 
-		const obj = {service: 'json-placeholder', prefix: 'http://jsonplaceholder.typicode.com', agent: 'restinga-node/1.0.0 (https://github.com/jay-ess/restinga-node)'};
-		this.descriptor = obj || null;
+		const descriptor = {
+			service: 'json-placeholder',
+			prefix: 'http://jsonplaceholder.typicode.com',
+			agent: 'restinga-node/1.0.0 (https://github.com/jay-ess/restinga-node)'
+		};
+		this.descriptor = descriptor || null;
 
 		this.attributes = {};
 
