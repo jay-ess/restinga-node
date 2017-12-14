@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "xo && ava test/**/*.test.js --require babel-register",
+    "test": "xo && ava test/**/*.test.js --require babel-register --verbose",
     "test-with-coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "build": "babel src --out-dir lib",
     "prepublish": "npm run build",
