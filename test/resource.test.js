@@ -1,10 +1,10 @@
 import test from 'ava';
-import {Container} from '../src';
+// import {Container} from '../src';
 import {JsonPlaceholderService, PostResource, CommentResource} from './fixtures';
 
 const jsonPlaceholderService = new JsonPlaceholderService();
 
-Container.register(jsonPlaceholderService);
+// Container.register(jsonPlaceholderService);
 
 test('Resource', t => {
 	const post = new PostResource();

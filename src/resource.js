@@ -1,5 +1,5 @@
 import Request from './request';
-import {Container} from './';
+// import descriptor from './descriptor';
 
 const debug = require('debug')('restinga:resource');
 
@@ -25,7 +25,8 @@ export default class Resource {
 		this.collectionRoot = collectionRoot;
 		this.itemRoot = itemRoot;
 
-		this.descriptor = Container.get(this.service);
+		const obj = {service: 'json-placeholder', prefix: 'http://jsonplaceholder.typicode.com', agent: 'restinga-node/1.0.0 (https://github.com/jay-ess/restinga-node)'};
+		this.descriptor = obj || null;
 
 		this.attributes = {};
 
